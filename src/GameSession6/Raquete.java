@@ -4,25 +4,25 @@ import java.awt.Graphics2D;
 import java.awt.Rectangle;
 import java.awt.event.KeyEvent;
 
-public class Racquet {
+public class Raquete {
 	private static final int Y = 330;
-	private static final int WIDTH = 60;
-	private static final int HEIGHT = 10;
+	private static final int LARGURA = 60;
+	private static final int ALTURA = 10;
 	int x = 0;
 	int xa = 0;
 	private Game game;
 
-	public Racquet(Game game) {
+	public Raquete(Game game) {
 		this.game = game;
 	}
 
-	public void move() {
-		if (x + xa > 0 && x + xa < game.getWidth() - WIDTH)
+	public void mover() {
+		if (x + xa > 0 && x + xa < game.getWidth() - LARGURA)
 			x = x + xa;
 	}
 
 	public void paint(Graphics2D g) {
-		g.fillRect(x, Y, WIDTH, HEIGHT);
+		g.fillRect(x, Y, LARGURA, ALTURA);
 	}
 
 	public void keyReleased(KeyEvent e) {
@@ -37,7 +37,7 @@ public class Racquet {
 	}
 
 	public Rectangle getBounds() {
-		return new Rectangle(x, Y, WIDTH, HEIGHT);
+		return new Rectangle(x, Y, LARGURA, ALTURA);
 	}
 
 	public int getTopY() {

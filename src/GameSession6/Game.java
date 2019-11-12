@@ -13,8 +13,8 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game extends JPanel {
 
-	Ball ball = new Ball(this);
-	Racquet racquet = new Racquet(this);
+	Bola ball = new Bola(this);
+	Raquete raquete = new Raquete(this);
 
 	public Game() {
 		addKeyListener(new KeyListener() {
@@ -24,30 +24,29 @@ public class Game extends JPanel {
 
 			@Override
 			public void keyReleased(KeyEvent e) {
-				racquet.keyReleased(e);
+				raquete.keyReleased(e);
 			}
 
 			@Override
 			public void keyPressed(KeyEvent e) {
-				racquet.keyPressed(e);
+				raquete.keyPressed(e);
 			}
 		});
 		setFocusable(true);
 	}
 	
-	private void move() {
-		ball.move();
-		racquet.move();
+	private void mover() {
+		ball.mover();
+		raquete.mover();
 	}
 
 	@Override
 	public void paint(Graphics g) {
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
-		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING,
-				RenderingHints.VALUE_ANTIALIAS_ON);
+		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
 		ball.paint(g2d);
-		racquet.paint(g2d);
+		raquete.paint(g2d);
 	}
 	
 	public void gameOver() {
@@ -56,7 +55,7 @@ public class Game extends JPanel {
 	}
 
 	public static void main(String[] args) throws InterruptedException {
-		JFrame frame = new JFrame("Mini Tennis");
+		JFrame frame = new JFrame("Mini Tennis by Tadeu Primo");
 		Game game = new Game();
 		frame.add(game);
 		frame.setSize(300, 400);
@@ -64,7 +63,7 @@ public class Game extends JPanel {
 		frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		
 		while (true) {
-			game.move();
+			game.mover();
 			game.repaint();
 			Thread.sleep(6);
 		}
