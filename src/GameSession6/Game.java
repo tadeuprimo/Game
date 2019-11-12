@@ -13,7 +13,7 @@ import javax.swing.JPanel;
 @SuppressWarnings("serial")
 public class Game extends JPanel {
 
-	Bola ball = new Bola(this);
+	Bola bola = new Bola(this);
 	Raquete raquete = new Raquete(this);
 
 	public Game() {
@@ -36,7 +36,7 @@ public class Game extends JPanel {
 	}
 	
 	private void mover() {
-		ball.mover();
+		bola.mover();
 		raquete.mover();
 	}
 
@@ -45,7 +45,7 @@ public class Game extends JPanel {
 		super.paint(g);
 		Graphics2D g2d = (Graphics2D) g;
 		g2d.setRenderingHint(RenderingHints.KEY_ANTIALIASING, RenderingHints.VALUE_ANTIALIAS_ON);
-		ball.paint(g2d);
+		bola.paint(g2d);
 		raquete.paint(g2d);
 	}
 	
